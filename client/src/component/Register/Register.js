@@ -4,7 +4,28 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const Register = () => {
   const [rescueEmails, setRescueEmails] = useState([]);
+
   const { user, isAuthenticated } = useAuth0();
+
+//changed from here
+  const [numbers, setNumbers] = useState([]);
+  useEffect(() => {
+    // Fetch rescue team emails from your backend API
+    fetch('http://localhost:3001/rescue-team-data/rescue-team-number')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setNumbers(data);
+        console.log('Rescue Emails:', data);
+      })
+      .catch((error) => {
+        console.error('Error fetching rescue team emails:', error);
+      });
+  }, []);
 
   useEffect(() => {
     // Fetch rescue team emails from your backend API
@@ -42,14 +63,18 @@ const Register = () => {
     <>
     
     <div>
-      <h1>{userEmail}</h1>
+      
       <div>
         {isUserInRescueEmails ? (
-          <div>
-            <NavLink to="/alert-form">Click to fill Alert Data</NavLink>
+            
+          <div className='text-center h-[50px] w-[50px] animate-bounce fixed bottom-[80px] right-5 font-bold font-serif p-1 bg-black rounded-[50%] mt-5'>
+            
+            <NavLink to="/alert-form" className=" text-3xl  ">
+            <i class="zmdi zmdi-alert-triangle text-yellow-500"></i>
+            </NavLink> 
           </div>
         ) : (
-          <p>You do not have access to the alert form.</p>
+          ""
         )}
       </div>
 

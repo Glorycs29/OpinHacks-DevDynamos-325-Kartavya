@@ -38,36 +38,34 @@ function NearestPlaces() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen p-4">
+    <div className=" min-h-screen p-4">
       <h1 className="text-3xl font-bold mb-8">
-        MERN Stack Nearest Place Finder
+        <span className="text-orange-500 font-bold text-4xl animate-pulse font-serif ">HOSPITAL Teams</span>
+        
+        <h1> NEAR ME</h1>
       </h1>
-      {/* <button
-        onClick={fetchNearestPlaces}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-transform hover:scale-105 focus:outline-none focus:ring focus:ring-blue-300"
-      >
-        Find Nearest Places
-      </button> */}
-      {/* <NearestLocationForm fetchNearestPlace={fetchNearestPlaces} /> */}
-      <div className="flex flex-wrap -m-4 mt-8">
+      <div className="h-[300px]"><img src="image/hospital-near-me.jpg" alt="" /></div>
+
+      <div className="flex flex-wrap mt-2">
         {nearestPlaces && nearestPlaces.length > 0 ? (
           nearestPlaces.map((place) => (
             <div
               key={place._id}
-              className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-4 transform transition-transform hover:scale-105"
+              className="w-[100%] grid sm:grid-cols-1 lg-grid-cols-4 mx-4 mb-4"
             >
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-2">
-                <div className="px-6 py-4">
+              <div className=" rounded-lg overflow-hidden bg-blue-50 shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-2">
+                <div className="px-3 py-4">
+                  
                   <p className="font-bold text-xl mb-2">
                     Name: {place.HospitalName}
                   </p>
                   <p className="text-gray-700 text-base mb-2">
                     Email Id: {place.HospitalEmail}
                   </p>
-                  <p className="text-gray-700 text-base mb-2">
+                  <p className="text-gray-700 text-base mb-2 ">
                     Phone Number: {place.phoneNumber}
                   </p>
-                  <p className="text-gray-700 text-base mb-2">
+                  <p className="text-gray-700 text-base mb-2 ">
                     Address: {place.address}
                   </p>
                 </div>

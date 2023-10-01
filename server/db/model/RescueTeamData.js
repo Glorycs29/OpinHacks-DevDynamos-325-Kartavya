@@ -22,6 +22,11 @@ const RescueTeamSchema = new mongoose.Schema({
   address: {
     type: String,
   },
+  credentail_id : {
+    type : String,
+    default : "abcde",
+},
+
 });
 
 const RescueTeamData = new mongoose.model("RescueTeamData", RescueTeamSchema);
